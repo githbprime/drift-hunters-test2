@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player</title>
-    <link rel="stylesheet" href="data/style.css">
-    <script src="data/UnityProgress.js"></script>  
+    <title>Drift Hunters</title>
+    <script src="data/UnityProgress.js"></script>
     <script src="data/UnityLoader.js"></script>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "data/index.json", {onProgress: UnityProgress});
+        var gameInstance = UnityLoader.instantiate("gameContainer", "data/index.json", {onProgress: UnityProgress});
     </script>
-  </head>
-  <body>
-    <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">Drift Hunters</div>
-      </div>
-    </div>
-  </body>
+    <style>
+        /* Force the HTML body to take up the full window with no gaps */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* Keeps screen black while loading */
+        }
+        /* Make the game container span the entire viewport */
+        #gameContainer {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Only the game container remains; all external UI elements and footers are removed -->
+    <div id="gameContainer"></div>
+</body>
 </html>
